@@ -43,7 +43,7 @@
 
 .MemoryCardFront {
     font-size: 30px;
-    line-height: 70px;
+    line-height: 70px; /* not line-height: 20px;*/
     transform: rotateY(180deg);
 }
 
