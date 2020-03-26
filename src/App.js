@@ -18,12 +18,14 @@ const generateDeck = () => {
   const symbols = [`∆`,` ß`, `£`, `§`,`•`, `$`, `+`, `ø`];
   let deck = [];
   for (let i = 0; i < 16; i++){
-    deck.push({isFlipped: false, 
-                symbol: symbols[i % 8]});
+    deck.push({
+      isFlipped: false, 
+      symbol: symbols[i % 8]
+    });
   }
-  deck = shuffle(deck);
-  return deck;
+  return shuffle(deck);
 }
+console.log(generateDeck());
 
 class App extends MemoryCard {
   state = {
@@ -32,6 +34,10 @@ class App extends MemoryCard {
   }
 
   render() {
+    let cardsJSX = this.state.deck.map((card, index) => {
+      return <MemoryCard symbol={card.symbol} isFlipped={card.isFlipped} key={index} />
+    });
+
     return (
       <div className="App">
         <header className="App-header">
@@ -39,28 +45,16 @@ class App extends MemoryCard {
          <p className="subtitle">Match Cards to Win</p>
         </header>
         <div>
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
+            {cardsJSX.slice(0,4)}
         </div>
         <div>
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
+          {cardsJSX.slice(4,8)}
         </div>
         <div>
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
+          {cardsJSX.slice(8,12)}
         </div>
         <div>
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
-          <MemoryCard />
+          {cardsJSX.slice(12,16)}
         </div>
       </div>
     );

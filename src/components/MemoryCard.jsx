@@ -11,7 +11,7 @@ class MemoryCard extends Component {
     } 
 
     render () {
-        const memoryCardInnerClass = this.state.isFlipped? 'MemoryCardInner flipped' : 'MemoryCardInner';
+        const memoryCardInnerClass = this.props.isFlipped? 'MemoryCardInner flipped' : 'MemoryCardInner';
 
         return (
             <div className='MemoryCard' onClick={this.clickHandler}>
@@ -21,7 +21,7 @@ class MemoryCard extends Component {
                         alt='DigitalCrafts Logo'/>
                     </div>
                     <div className='MemoryCardFront'>
-                        ∆
+                        {this.props.symbol}
                     </div>
                 </div>
             </div>
