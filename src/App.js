@@ -64,7 +64,6 @@ class App extends MemoryCard {
     const card2 = {...this.state.deck[card2Index]};
     card1.isFlipped = false;
     card2.isFlipped = false;
-    console.log('original', this.state.deck)
     const newDeck = this.state.deck.map((card, index) => {
       if (card1Index === index){
         return card1;
@@ -74,7 +73,6 @@ class App extends MemoryCard {
       }
       return card;
     });
-    console.log('new', newDeck)
     this.setState(
       {deck: newDeck}
     );
