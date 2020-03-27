@@ -27,7 +27,7 @@ const generateDeck = () => {
 }
 
 
-class App extends MemoryCard {
+class App extends React.Component {
   state = {
     pickedCards: [],
     deck: generateDeck()
